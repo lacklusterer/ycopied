@@ -113,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${domainText ? `<span class="domain">${domainText}</span>` : ''}
                 </h3>
                 <div class="meta">
-                    <span class="points">${item.points} points</span>
                     <span class="author">by <a href="#" class="author-link">${item.author}</a></span>
                     <span class="time">${item.time}</span>
                     <span class="separator">|</span>
