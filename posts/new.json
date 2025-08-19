@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Tài Sản Số: Cơ Hội và Thách Thức Trong Kỷ Nguyên Mới",
+    "domain": "",
+    "url": "stories/tai-san-so-viet-nam.html",
+    "points": 143,
+    "author": "cryptovn",
+    "timestamp": "2025-08-19T07:40:00Z",
+    "comments": 67,
+    "type": "story"
+  },
+  {
+    "id": 2,
+    "title": "Building Scalable Web Applications: Lessons from the Trenches",
+    "domain": "",
+    "url": "stories/scalable-web-apps.html",
+    "points": 187,
+    "author": "techarchitect",
+    "timestamp": "2025-08-19T07:36:36Z",
+    "comments": 92,
+    "type": "story"
+  },
+  {
+    "id": 3,
+    "title": "Example post type: link to other website",
+    "domain": "example.com",
+    "url": "https://example.com",
+    "points": 89,
+    "author": "techuser",
+    "timestamp": "2025-08-18T00:00:00Z",
+    "comments": 45,
+    "type": "link"
+  }
+]
