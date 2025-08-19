@@ -1,11 +1,10 @@
 /* Story-specific styles - extends styles.css */
 
 .story {
-    max-width: 800px;
+    max-width: 60vw;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #f6f6ef;
     padding: 20px;
-    border: 1px solid #ddd;
 }
 
 .story-header {
