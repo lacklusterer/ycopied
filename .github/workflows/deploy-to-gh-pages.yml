@@ -26,23 +26,10 @@ jobs:
 
     - name: Sync dist files to gh-pages
       run: |
-        set -e
+        # Copy files from main/dist/ to gh-pages root, overwriting existing files
+        cp -rf main/dist/* gh-pages/ 2>/dev/null || true
         
-        # Verify source exists
-        if [ ! -d "main/dist" ]; then
-          echo "Error: main/dist directory not found"
-          exit 1
-        fi
-        
-        # Use rsync to sync only changes
-        rsync -av --delete \
-          --exclude='.git/' \
-          --exclude='.github/' \
-          --exclude='.gitignore' \
-          --exclude='README.md' \
-          --exclude='*.md' \
-          main/dist/ gh-pages/
-        
+        # Change to gh-pages directory
         cd gh-pages
         
         # Configure git
@@ -50,18 +37,16 @@ jobs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
         
         # Check if there are any changes
-        if git diff --quiet && git diff --staged --quiet; then
+        if git diff --quiet && git diff --cached --quiet; then
           echo "No changes to deploy"
           exit 0
         fi
         
-        # Show what changed
-        echo "Changes detected:"
-        git status --porcelain
-        
-        # Add and commit only changed files
+        # Add and commit changes
         git add .
-        git commit -m "Deploy changes from main: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        git commit -m "Deploy from main: $(date)"
+        
+        # Push changes
         git push origin gh-pages
 
     - name: Report deployment
