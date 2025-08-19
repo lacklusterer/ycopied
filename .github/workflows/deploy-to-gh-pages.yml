@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'dist/**' ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout main branch
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        path: main
+
+    - name: Checkout gh-pages branch
+      uses: actions/checkout@v4
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Sync dist files to gh-pages
+      run: |
+        set -e
+        
+        # Verify source exists
+        if [ ! -d "main/dist" ]; then
+          echo "Error: main/dist directory not found"
+          exit 1
+        fi
+        
+        # Use rsync to sync only changes
+        rsync -av --delete \
+          --exclude='.git/' \
+          --exclude='.github/' \
+          --exclude='.gitignore' \
+          --exclude='README.md' \
+          --exclude='*.md' \
+          main/dist/ gh-pages/
+        
+        cd gh-pages
+        
+        # Configure git
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # Check if there are any changes
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "No changes to deploy"
+          exit 0
+        fi
+        
+        # Show what changed
+        echo "Changes detected:"
+        git status --porcelain
+        
+        # Add and commit only changed files
+        git add .
+        git commit -m "Deploy changes from main: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        git push origin gh-pages
+
+    - name: Report deployment
+      run: |
+        echo "Deployment completed successfully"
+        echo "Files synced from main/dist/ to gh-pages root"
