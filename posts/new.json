@@ -1,35 +1,24 @@
 [
-  {
-    "id": 1,
-    "title": "Tài Sản Số: Cơ Hội và Thách Thức Trong Kỷ Nguyên Mới",
-    "domain": "",
-    "url": "stories/tai-san-so-viet-nam.html",
-    "points": 143,
-    "author": "cryptovn",
-    "timestamp": "2025-08-19T07:40:00Z",
-    "comments": 67,
-    "type": "story"
-  },
-  {
-    "id": 2,
-    "title": "Building Scalable Web Applications: Lessons from the Trenches",
-    "domain": "",
-    "url": "stories/scalable-web-apps.html",
-    "points": 187,
-    "author": "techarchitect",
-    "timestamp": "2025-08-19T07:36:36Z",
-    "comments": 92,
-    "type": "story"
-  },
-  {
-    "id": 3,
-    "title": "Example post type: link to other website",
-    "domain": "example.com",
-    "url": "https://example.com",
-    "points": 89,
-    "author": "techuser",
-    "timestamp": "2025-08-18T00:00:00Z",
-    "comments": 45,
-    "type": "link"
-  }
+	{
+		"id": 1,
+		"title": "Đà Nẵng Tiên Phong Cấp Phép Thử Nghiệm Basal Pay - Dự Án Tài Sản Số Đầu Tiên Tại Việt Nam",
+		"domain": "",
+		"url": "stories/basal-pay-danang.html",
+		"points": 5,
+		"author": "tovn",
+		"timestamp": "2025-08-27T08:25:48Z",
+		"comments": 0,
+		"type": "story"
+	},
+	{
+		"id": 2,
+		"title": "Tài Sản Số: Cơ Hội và Thách Thức Trong Kỷ Nguyên Mới",
+		"domain": "",
+		"url": "stories/tai-san-so-viet-nam.html",
+		"points": 14,
+		"author": "tovn",
+		"timestamp": "2025-08-19T07:40:00Z",
+		"comments": 0,
+		"type": "story"
+	}
 ]
